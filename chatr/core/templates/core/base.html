@@ -4,34 +4,52 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost">
+        <link rel="stylesheet" href="preview.css">
 
         <title>{% block title %}{% endblock %}CHATR</title>
 
         <script src="https://cdn.tailwindcss.com"></script>
 
         <style>
+            body, h1 {font-family: "Jost", serif;}
             .chat-messages {
                 height: 400px;
                 overflow-y: auto;
             }
+            .bgimg {
+                background-image: url('https://images.unsplash.com/photo-1618172193622-ae2d025f4032?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2864&q=80');
+                /* min-height: 120%; 
+                background-position: center;
+                background-size: cover;
+                height:135%;
+                width:100%;
+                display:block;
+                margin:auto; */
+            }
         </style>
     </head>
 
-    <body class="bg-teal-600">
-        <nav class="flex items-center justify-between px-4 py-6 bg-teal-800">
+
+    <body class="bgimg bg-center bg-no-repeat bg-auto font-bold bg-[length:2100px_1700px]">
+        <!-- <img
+              src="https://images.unsplash.com/photo-1618172193622-ae2d025f4032?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2864&q=80"
+              alt=""
+            /> -->
+        <nav class="flex items-center justify-between px-4 py-6 font-bold">
             <div>
-                <a href="/" class="text-xl text-white"><b>ChatR</b></a>
+                <a href="/" class="text-xl text-white "><button>ChatR</button></a>
             </div>
 
             <div class="flex items-center space-x-4">
                 {% if request.user.is_authenticated  %}
                     <a href="/rooms/" class="text-white hover:text-gray-200">Rooms</a>
 
-                    <a href="/logout/" class="px-5 py-3 rounded-xl text-white bg-teal-600 hover:bg-teal-700">Log out</a>
+                    <a href="/logout/" class="px-5 py-3 rounded-xl text-white bg-indigo-500 hover:bg-indigo-600">Log out</a>
                 {% else %}
                     <a href="/login/" class="text-white hover:text-gray-200">Log in</a>
 
-                    <a href="/signup/" class="px-5 py-3 rounded-xl text-white bg-teal-600 hover:bg-teal-700">Sign up</a>
+                    <a href="/signup/" class="px-5 py-3 rounded-xl text-white bg-indigo-500 hover:bg-indigo-600">Sign up</a>
                 {% endif %}
           </div>
         </nav>
